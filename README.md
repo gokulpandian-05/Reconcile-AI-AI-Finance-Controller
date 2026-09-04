@@ -1,241 +1,290 @@
-ReconcileAI — AI Finance Controller
-An AI-powered finance operations controller for multi-source reconciliation, exception reasoning, safe failure recovery, and audit-ready financial decisions.
+# Reconcile AI — AI Finance Controller
 
-ReconcileAI is a Python-based finance automation project for reconciling invoices, payments, and settlements across multiple financial sources.
+> **AI-assisted financial reconciliation with deterministic controls, selective AI reasoning, validation, auditability, and measurable performance.**
 
-The project deliberately combines deterministic financial logic with selective AI reasoning:
+[![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red?logo=streamlit)](https://streamlit.io/)
+[![Pandas](https://img.shields.io/badge/Pandas-Data%20Processing-150458?logo=pandas)](https://pandas.pydata.org/)
+[![Gemini](https://img.shields.io/badge/Google%20Gemini-AI%20Reasoning-4285F4?logo=google)](https://ai.google.dev/)
 
-Deterministic Python rules handle routine reconciliation and financial comparisons.
-Exceptions are classified before AI is used.
-Gemini is used only for cases where contextual reasoning can add value.
-AI responses are validated before they are accepted.
-Failed or invalid AI responses are handled through retry/fallback logic.
-Cases that cannot be safely resolved remain UNRESOLVED for human review.
-Results can be benchmarked against a controlled ground-truth dataset and reviewed through audit outputs and a Streamlit dashboard.
-The core principle is simple:
+---
 
-Use AI where reasoning adds value, but keep financial calculations, validation, and reconciliation deterministic and auditable.
+## 📌 Overview
 
-🚀 Key Features
-Multi-source invoice, payment, and settlement reconciliation
-Synthetic financial dataset generation
-Controlled ground-truth evaluation
-Deterministic financial matching and comparison
-Exception classification
-Selective AI routing
-Gemini-powered exception explanations
-AI response validation
-Retry and failure recovery
-Deterministic fallback handling
-Unresolved / human-review workflow
-Audit logging and audit reporting
-Benchmarking and accuracy evaluation
-Metrics generation
-Streamlit dashboard
-Controlled AI request usage
-🏗️ Architecture
-Synthetic Financial Data
-          │
-          ▼
-      Ingestion
-          │
-          ▼
-    Normalization
-          │
-          ▼
-Deterministic Reconciliation
-          │
-          ▼
-Exception Classification
-          │
-     ┌────┴────┐
-     │         │
-  Routine   Ambiguous
-   Cases      Cases
-     │         │
-     ▼         ▼
-Deterministic AI Router
-   Rules        │
-                ▼
-             Gemini
-                │
-                ▼
-       Response Validation
-          │           │
-        Valid       Failure
-          │           │
-          ▼           ▼
-     AI Decision   Retry/Fallback
-                      │
-                      ▼
-             UNRESOLVED / HUMAN REVIEW
-                      │
-                      ▼
-                Final Results
-                      │
-          ┌───────────┼───────────┐
-          ▼           ▼           ▼
-       Audit      Benchmark    Dashboard
-        Trail    & Ground Truth  Evidence
-💡 Why AI Is Used Selectively
-Not every financial exception needs an LLM.
+**Reconcile AI** is an AI-assisted finance reconciliation controller designed to process financial transactions across multiple source systems such as:
 
-For example:
+* Invoices
+* Payments
+* Settlements
 
-Invoice Amount = ₹10,000
-Payment Amount = ₹10,000
-Difference     = ₹0
-A straightforward comparison should be handled by deterministic code rather than consuming an AI request.
+The system combines **deterministic financial rules** with **selective AI reasoning**.
 
-The controller therefore separates cases into categories such as:
+It does not send every transaction to an LLM.
 
+Instead, the controller first performs reliable programmatic checks and only routes ambiguous financial exceptions to AI when contextual reasoning is useful.
+
+The system also validates AI responses and safely routes unresolved cases to human review.
+
+---
+
+# 🎯 What the System Does
+
+```text
+Financial Sources
+       │
+       ▼
+┌──────────────────┐
+│ Data Ingestion   │
+└────────┬─────────┘
+         ▼
+┌──────────────────┐
+│ Normalization    │
+└────────┬─────────┘
+         ▼
+┌──────────────────┐
+│ Reconciliation   │
+└────────┬─────────┘
+         ▼
+┌──────────────────┐
+│ Exception        │
+│ Classification   │
+└────────┬─────────┘
+         ▼
+┌──────────────────┐
+│ AI Router        │
+└───────┬──────────┘
+        │
+   ┌────┴───────────────┐
+   │                    │
+   ▼                    ▼
+Deterministic        AI Required
+Rules                Exceptions
+   │                    │
+   │                    ▼
+   │              Gemini / Agent
+   │                    │
+   │                    ▼
+   │              AI Validation
+   │                    │
+   └──────────┬─────────┘
+              ▼
+       Final Decision
+              │
+       ┌──────┴───────┐
+       ▼              ▼
+     Audit        Benchmark
+       │              │
+       └──────┬───────┘
+              ▼
+        Streamlit Dashboard
+```
+
+---
+
+# ✨ Key Features
+
+### 1. Multi-source reconciliation
+
+Combines financial information from:
+
+* Invoice data
+* Payment data
+* Settlement data
+
+### 2. Deterministic financial controls
+
+Reliable calculations and matching are performed using programmatic rules rather than AI.
+
+Examples:
+
+* Invoice vs payment comparison
+* Settlement calculation validation
+* Duplicate detection
+* Fee difference detection
+* Missing transaction detection
+* Date mismatch detection
+
+### 3. Selective AI routing
+
+AI is used only when contextual reasoning can add value.
+
+Typical AI-routed exceptions include:
+
+* Payment missing
+* Amount discrepancy
+* Settlement missing
+* Settlement discrepancy
+* Settlement delay
+* Date mismatch
+
+Deterministic exceptions do not unnecessarily consume Gemini requests.
+
+### 4. AI validation
+
+LLM responses are treated as **untrusted external output**.
+
+The system validates AI responses before accepting them.
+
+Invalid or unsafe responses can be rejected and routed to recovery or human review.
+
+### 5. Failure recovery
+
+AI failure does not stop the entire financial batch.
+
+The controller can handle:
+
+* API failures
+* Timeouts
+* Invalid AI responses
+* Missing evidence
+* Data errors
+
+When a transaction cannot be safely resolved:
+
+```text
+UNRESOLVED
+     ↓
+HUMAN_REVIEW
+```
+
+### 6. Auditability
+
+The system produces audit-related outputs so decisions can be reviewed after processing.
+
+The audit layer captures information such as:
+
+```text
 Transaction
-    │
-    ▼
-Exception Classification
-    │
-    ├── NO_AI
-    │
-    ├── RULE_BASED
-    │
-    └── AI_REQUIRED
-             │
-             ▼
-          Gemini
-This approach reduces unnecessary AI usage while keeping core financial decisions explainable.
-
-📊 Synthetic Dataset
-The project includes a controlled synthetic dataset generator.
-
-The documented test dataset contains:
-
-70 total transactions
-58 normal records
-12 intentional exception scenarios
-Exception scenarios
-Exception	Count
-Amount mismatch	3
-Missing settlement	3
-Missing payment	2
-Duplicate transaction	1
-Date mismatch	1
-Fee difference	2
-Total exceptions	12
-The generator uses a fixed random seed for reproducibility:
-
-random.seed(42)
-The controlled dataset is also designed to limit the number of potential AI-required cases so that Gemini usage stays within the intended request budget.
-
-🧠 AI Routing
-The AI router determines which exceptions should receive AI reasoning.
-
-Conceptually:
-
+    ↓
 Exception
-    │
-    ▼
-Classification
-    │
-    ├── NO_AI
-    │
-    ├── RULE_BASED
-    │
-    └── AI_REQUIRED
-             │
-             ▼
-           Gemini
-The important design decision is that the entire dataset is not automatically sent to an LLM.
+    ↓
+AI Used?
+    ↓
+Decision
+    ↓
+Validation
+    ↓
+Recovery
+```
 
-AI is reserved for ambiguous cases where contextual interpretation can provide additional value.
+### 7. Ground-truth evaluation
 
-🤖 AI Exception Explanation
-For an AI_REQUIRED exception, relevant transaction context can be passed to Gemini.
+The controller can compare its results against a known ground-truth dataset.
 
-The AI is expected to provide a structured explanation rather than directly modifying financial records.
+```text
+Ground Truth
+      │
+      ▼
+Expected Outcome
+      │
+      │ compare
+      ▼
+Controller Result
+      │
+      ▼
+Correct / Incorrect / Pending
+```
 
-AI output is then validated by the controller before it is accepted.
+### 8. Benchmarking
 
-AI can explain a financial exception, but it should not be trusted blindly.
+Benchmarking measures system performance without making additional Gemini requests.
 
-🛡️ Failure Recovery
-Failure recovery is part of the controller's core workflow.
+Metrics include:
 
-For example, if a Gemini request times out:
+* Total records
+* Evaluated records
+* Correct results
+* Incorrect results
+* Pending results
+* Accuracy
+* Deterministic processing
+* Rule-based processing
+* AI processing
+* Throughput
 
-Transaction
-    │
-    ▼
-Gemini Request
-    │
-    ▼
-API Timeout
-    │
-    ▼
-Retry
-    │
-    ├── Success ──► Continue
-    │
-    └── Failed
-          │
-          ▼
- Deterministic Fallback
-          │
-          ▼
- Insufficient Evidence?
-          │
-          ▼
-     UNRESOLVED
-One failed AI request should not terminate processing for the entire batch.
+### 9. Interactive dashboard
 
-Invalid AI responses
-AI output is validated before acceptance.
+A Streamlit dashboard provides visibility into:
 
-For example, a confidence value such as:
+* Reconciliation results
+* Exception classifications
+* AI routing
+* Final decisions
+* Metrics
+* Benchmark results
+* Audit reports
+* Accuracy
+* Throughput
+* Human-review cases
+* Unresolved transactions
 
-confidence = 1.7
-should be rejected when the expected range does not allow it.
+---
 
-The controller can then fall back to:
+# 🧠 AI Decision Strategy
 
-Invalid AI Output
-        │
-        ▼
-      Reject
-        │
-        ▼
-     Fallback
-        │
-        ▼
-UNRESOLVED / HUMAN REVIEW
-For financial automation, an unresolved case is preferable to an unsupported or fabricated financial answer.
+The system follows a simple principle:
 
-🔐 Data Integrity Principles
-1. Never invent financial values
-If a required financial value is missing or corrupted:
+> **Use deterministic logic for deterministic problems. Use AI only where reasoning adds value.**
 
-Do NOT calculate
-Do NOT guess
-Do NOT fabricate
+### Processing strategy
+
+| Transaction type       | Processing              |
+| ---------------------- | ----------------------- |
+| Normal match           | Deterministic           |
+| Duplicate              | Rule-based              |
+| Fee difference         | Rule-based              |
+| Settlement calculation | Rule-based              |
+| Contextual exception   | AI                      |
+| Missing critical data  | Human review            |
+| AI failure             | Human review            |
+| Invalid AI response    | Recovery / Human review |
+
+This reduces unnecessary AI usage while keeping financial calculations deterministic.
+
+---
+
+# 🔐 Data Integrity
+
+The controller follows four important principles.
+
+### Never invent financial values
+
+If financial evidence is missing or corrupted:
+
+```text
+DO NOT GUESS
+DO NOT FABRICATE
+DO NOT FORCE A RESULT
+```
+
 Instead:
 
+```text
 DATA_ERROR
-    │
-    ▼
+    ↓
 UNRESOLVED
-    │
-    ▼
-HUMAN REVIEW
-2. Preserve exceptions
-Failed or invalid records should remain visible in the final exception results.
+    ↓
+HUMAN_REVIEW
+```
 
-3. Continue the batch
-A single problematic transaction should not stop processing of the remaining transactions.
+### Preserve exceptions
 
-4. Validate AI output
-LLM responses are treated as untrusted external output and must pass validation before acceptance.
+Failed transactions remain visible instead of silently disappearing.
 
-📁 Project Structure
-AI Finance Controller/
+### Continue processing
+
+One bad transaction should not stop the remaining batch.
+
+### Validate AI output
+
+AI responses must pass validation before they can influence the final decision.
+
+---
+
+# 📁 Project Structure
+
+```text
+Reconcile-AI-AI-Finance-Controller/
 │
 ├── dashboard/
 │   └── app.py
@@ -245,17 +294,25 @@ AI Finance Controller/
 │   ├── payments.csv
 │   ├── settlements.csv
 │   ├── ground_truth.csv
+│   │
+│   ├── normalized_invoices.csv
+│   ├── normalized_payments.csv
+│   ├── normalized_settlements.csv
+│   │
 │   ├── reconciliation_results.csv
 │   ├── classified_exceptions.csv
 │   ├── ai_routing_results.csv
 │   ├── final_results.csv
+│   │
 │   ├── metrics.csv
 │   ├── audit_log.csv
 │   ├── audit_report.csv
+│   │
 │   ├── benchmark.csv
 │   └── benchmark_details.csv
 │
 ├── prompts/
+│   └── AI prompt templates
 │
 ├── src/
 │   ├── agent.py
@@ -280,273 +337,509 @@ AI Finance Controller/
 ├── .gitignore
 ├── requirements.txt
 └── README.md
-Generated files such as Python cache files, local databases, and environment secrets should remain outside version control.
+```
 
-⚙️ Technology Stack
-Technology	Purpose
-Python	Core application
-Pandas	Financial data processing
-SQLite	Local persistence / audit data
-Google Gemini	AI exception reasoning
-google-genai	Gemini API integration
-Streamlit	Interactive dashboard
-python-dotenv	Environment configuration
-CSV	Financial datasets and evaluation outputs
-🔑 Environment Configuration
-The project uses a Gemini API key through an environment variable.
+---
 
-Create a local .env file:
+# 🧩 Module Responsibilities
 
-GEMINI_API_KEY=your_gemini_api_key
-GEMINI_MODEL=gemini-3.7-flash
-The repository includes .env.example as a safe template.
+| Module                    | Responsibility                                |
+| ------------------------- | --------------------------------------------- |
+| `generate_data.py`        | Generates controlled synthetic financial data |
+| `ingestion.py`            | Loads financial source data                   |
+| `normalize.py`            | Standardizes source data                      |
+| `reconciliation.py`       | Performs deterministic reconciliation         |
+| `exception_classifier.py` | Categorizes reconciliation exceptions         |
+| `router.py`               | Decides deterministic vs AI vs human review   |
+| `agent.py`                | Coordinates AI transaction processing         |
+| `llm.py`                  | Handles Gemini interaction                    |
+| `decision_valider.py`     | Validates AI decisions                        |
+| `validate.py`             | Performs validation checks                    |
+| `database.py`             | Stores reconciliation results                 |
+| `audit.py`                | Creates audit records                         |
+| `audit_report.py`         | Produces audit reporting                      |
+| `metrics.py`              | Calculates performance metrics                |
+| `benchmark.py`            | Compares results against ground truth         |
+| `dashboard/app.py`        | Streamlit visualization                       |
 
-Never commit your real .env file or API key to GitHub.
+---
 
-The .gitignore should keep environment secrets and generated local artifacts out of version control.
+# ⚙️ Technology Stack
 
-🛠️ Installation
-1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/ReconcileAI-AI-Finance-Controller.git
-cd ReconcileAI-AI-Finance-Controller
-Replace YOUR_USERNAME and the repository name with your actual GitHub repository.
+| Technology      | Purpose                                   |
+| --------------- | ----------------------------------------- |
+| Python          | Core application                          |
+| Pandas          | Financial data processing                 |
+| SQLite          | Local persistence                         |
+| Google Gemini   | AI exception reasoning                    |
+| `google-genai`  | Gemini API integration                    |
+| Streamlit       | Interactive dashboard                     |
+| `python-dotenv` | Environment configuration                 |
+| CSV             | Financial datasets and evaluation outputs |
 
-2. Create a virtual environment
-Windows
+---
+
+# 🚀 Installation
+
+## 1. Clone the repository
+
+```bash
+git clone https://github.com/gokulpandian-05/Reconcile-AI-AI-Finance-Controller.git
+cd Reconcile-AI-AI-Finance-Controller
+```
+
+## 2. Create a virtual environment
+
+### Windows
+
+```powershell
 python -m venv .venv
-Activate it:
-
 .venv\Scripts\activate
-3. Install dependencies
+```
+
+### macOS / Linux
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+## 3. Install dependencies
+
+```bash
 pip install -r requirements.txt
-4. Configure Gemini
-Create .env in the project root:
+```
 
-GEMINI_API_KEY=your_gemini_api_key
+---
+
+# 🔑 Configure Gemini
+
+Create a local `.env` file in the project root.
+
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
 GEMINI_MODEL=gemini-3.7-flash
-▶️ Running the Project
-Generate synthetic financial data
-From the project root:
+```
 
+Never commit `.env`.
+
+The repository intentionally contains:
+
+```text
+.env.example
+```
+
+instead of real credentials.
+
+---
+
+# ▶️ Running the Project
+
+Always run commands from the **project root**.
+
+```text
+Reconcile-AI-AI-Finance-Controller/
+```
+
+## Generate synthetic data
+
+```bash
 python generate_data.py
-This generates the synthetic invoice, payment, settlement, and ground-truth datasets under:
+```
 
-data/
-Run the reconciliation workflow
-The project separates processing into modules for:
+This creates the controlled financial datasets used by the reconciliation workflow.
 
-Ingestion
-Normalization
-Reconciliation
-Exception classification
-AI routing
-AI explanation
+---
+
+# 🔄 Processing Workflow
+
+The complete controller workflow is:
+
+```text
+1. Generate Data
+       ↓
+2. Ingestion
+       ↓
+3. Normalization
+       ↓
+4. Reconciliation
+       ↓
+5. Exception Classification
+       ↓
+6. AI Routing
+       ↓
+7. AI Agent / Gemini
+       ↓
+8. Decision Validation
+       ↓
+9. Database / Audit
+       ↓
+10. Benchmark
+       ↓
+11. Dashboard
+```
+
+Each stage produces structured outputs that are consumed by the next stage.
+
+---
+
+# 🤖 AI Processing
+
+AI is not used for basic arithmetic or straightforward matching.
+
+For AI-required transactions:
+
+```text
+Transaction
+    ↓
+Router
+    ↓
+Agent
+    ↓
+Gemini
+    ↓
+Structured AI Response
+    ↓
 Validation
-Audit logging
-Benchmarking
-The overall workflow is:
+    ↓
+Accepted / Rejected
+```
 
-Generate Data
-     ↓
-Ingestion
-     ↓
-Normalization
-     ↓
-Reconciliation
-     ↓
-Exception Classification
-     ↓
-AI Routing
-     ↓
-AI Explanation
-     ↓
-Validation
-     ↓
-Audit
-     ↓
-Benchmark
-Run the relevant modules according to the workflow implemented in the repository.
+The AI is primarily responsible for **interpreting contextual exceptions and generating explanations**.
 
-📊 Streamlit Dashboard
-The project includes an interactive Streamlit dashboard.
+It does not directly modify the underlying financial source records.
 
-Run:
+---
 
+# 🛡️ Failure Recovery
+
+A failed AI request must not become a successful financial decision.
+
+Example:
+
+```text
+Transaction
+     ↓
+Gemini Request
+     ↓
+API Failure / Timeout
+     ↓
+Recovery
+     ↓
+Insufficient Evidence
+     ↓
+UNRESOLVED
+     ↓
+HUMAN_REVIEW
+```
+
+Invalid AI responses are also rejected.
+
+For example:
+
+```text
+confidence = 1.7
+```
+
+is invalid when confidence must remain within the expected range.
+
+The transaction can therefore be routed to:
+
+```text
+UNRESOLVED / HUMAN_REVIEW
+```
+
+---
+
+# 📊 Dashboard
+
+Start the Streamlit dashboard:
+
+```bash
 streamlit run dashboard/app.py
-The dashboard provides visibility into the project's operational and evaluation evidence, including:
+```
 
-Final reconciliation results
-Metrics
-Benchmark results
-Benchmark details
-Audit report
-Deterministic processing
-Rule-based processing
-AI reasoning
-Throughput
-Accuracy
-Pending / unresolved cases
-📈 Benchmarking
-The benchmark module evaluates controller results against the ground-truth dataset.
+Then open:
 
-A key design choice is:
+```text
+http://localhost:8501
+```
 
-Benchmarking does not call Gemini.
+The dashboard provides operational and evaluation visibility across the processed batch.
 
-This means evaluation can measure already-produced controller results without consuming additional AI requests.
+---
 
-The benchmark can track:
+# 📈 Benchmarking
 
-Ground-truth records
-Controller/database result records
-Evaluated records
-Pending records
-Correct records
-Incorrect records
-Accuracy
-Deterministic processing
-Rule-based processing
-AI reasoning
-🔎 Ground-Truth Evaluation
-The project uses a known ground-truth dataset to evaluate whether the controller produced the expected financial outcome.
+Benchmarking compares controller results against the project's ground-truth dataset.
 
+```text
 Ground Truth
      │
      ▼
-Expected Financial Outcome
-     │
-     │ compare
-     ▼
-Controller Result
+Controller Results
      │
      ▼
-Correct / Incorrect / Pending
-This allows the project to measure performance across a batch instead of relying only on individual demonstrations.
+Evaluation
+     │
+ ┌───┼───────────────┐
+ ▼   ▼               ▼
+Correct  Incorrect  Pending
+     │
+     ▼
+ Accuracy
+     +
+ Throughput
+```
 
-The evaluation focuses on:
+An important design decision is that benchmarking **does not call Gemini**.
 
-Total Records
-      +
-Correct Results
-      +
-Incorrect Results
-      +
-Pending / Unresolved
-      +
-Accuracy
-      +
-Throughput
-🧾 Auditability
-Financial automation requires traceability.
+This keeps evaluation independent from additional AI requests.
 
-The audit layer is designed to make the processing history reviewable:
+---
 
-What happened?
-      ↓
-Which transaction?
-      ↓
-What exception occurred?
-      ↓
-Was AI used?
-      ↓
-What decision was produced?
-      ↓
-Was the result validated?
-      ↓
-Was recovery required?
-This provides an audit trail instead of treating AI output as a black box.
+# 🧪 Testing
 
-🚨 Honest Exception Handling
-The controller does not force every transaction into a successful resolution.
+The project is designed around controlled financial exceptions.
 
-A transaction may remain:
+Example scenarios include:
 
-UNRESOLVED
-when there is insufficient evidence or when AI/recovery mechanisms fail.
+* Amount mismatch
+* Missing payment
+* Missing settlement
+* Duplicate transaction
+* Date mismatch
+* Fee difference
+* Invalid financial values
+* Missing transaction IDs
+* AI API failure
+* Invalid AI response
 
-This is intentional:
+The objective is not simply to demonstrate a successful transaction.
 
+The objective is to demonstrate that the controller can process **normal, exceptional, invalid, and failed cases without collapsing the entire batch**.
+
+---
+
+# 🏆 Evaluation Philosophy
+
+Reconcile AI focuses on four dimensions:
+
+```text
+                 Reconcile AI
+                      │
+        ┌─────────────┼─────────────┐
+        ▼             ▼             ▼
+   Financial      AI Judgment    Reliability
+    Accuracy
+        │             │             │
+        └─────────────┼─────────────┘
+                      ▼
+               Measured Results
+                      │
+             ┌────────┴────────┐
+             ▼                 ▼
+          Accuracy         Throughput
+             │                 │
+             └────────┬────────┘
+                      ▼
+              Honest Exceptions
+```
+
+The system therefore evaluates:
+
+* Why AI was used
+* When AI was not used
+* AI decision quality
+* Failure behavior
+* Accuracy
+* Throughput
+* Unresolved cases
+* Auditability
+
+---
+
+# 💡 Design Principles
+
+### 1. Deterministic first
+
+Use reliable programmatic rules wherever possible.
+
+### 2. AI only when useful
+
+Use LLM reasoning for contextual exceptions rather than routine calculations.
+
+### 3. Never blindly trust AI
+
+AI output must be validated.
+
+### 4. Fail safely
+
+An unresolved financial transaction is preferable to an unsupported financial decision.
+
+```text
 Correctly unresolved
         >
 Confidently incorrect
-The unresolved exception list is therefore an important part of both operational review and evaluation.
+```
 
-🧪 Testing Strategy
-The project includes controlled exception scenarios to exercise normal processing and failure handling.
+---
 
-Examples include:
+# 🔒 Security
 
-Amount mismatch
-Missing payment
-Missing settlement
-Duplicate transaction
-Date mismatch
-Fee difference
-Invalid or missing financial values
-AI API failures
-Invalid AI responses
-The objective is to demonstrate that exceptional records can be isolated and handled without compromising the entire processing batch.
+Never commit:
 
-🎯 Design Philosophy
-ReconcileAI follows four core principles.
-
-1. Use deterministic logic for deterministic problems
-Financial calculations, matching, comparisons, and validation should use reliable programmatic rules whenever possible.
-
-2. Use AI where reasoning adds value
-LLMs are useful for interpreting ambiguous exception context and generating human-readable explanations.
-
-3. Never blindly trust AI
-AI output is treated as untrusted external output and validated before acceptance.
-
-4. Fail safely
-If the system cannot safely resolve a transaction:
-
-UNRESOLVED
-is preferable to an unsupported financial decision.
-
-🔒 Security
-Do not commit:
-
+```text
 .env
 API keys
 Passwords
 Private credentials
 Local secrets
-Use:
+```
 
+The repository uses:
+
+```text
 .env.example
-to document required environment variables without exposing credentials.
+```
 
-Generated local databases and Python cache files should also remain outside version control.
+for environment configuration.
 
-📌 Project Status
-The repository contains the core components for the AI Finance Controller workflow:
+Generated Python cache files and local databases should also remain outside version control.
 
-Synthetic data generation
-Financial source datasets
-Normalization
-Deterministic reconciliation
-Exception classification
-AI routing
-Gemini integration
-AI validation
-Agent workflow
-Audit logging
-Benchmarking
-Ground-truth evaluation
-Metrics generation
-Streamlit dashboard
-The development focus is to keep the complete workflow reproducible, validate benchmark results, and maintain a clean repository suitable for demonstration and evaluation.
+---
 
-👤 Project
-Project: ReconcileAI — AI Finance Controller
+# 📦 Repository Outputs
 
-Purpose: AI-assisted financial reconciliation and exception operations.
+The project generates several categories of outputs.
 
-Primary focus: Multi-source reconciliation with selective AI reasoning, safe failure recovery, measurable performance, and auditability.
+### Source data
 
-⚠️ Disclaimer
-This project uses synthetic financial data for demonstration, development, and evaluation purposes.
+```text
+invoices.csv
+payments.csv
+settlements.csv
+ground_truth.csv
+```
 
-It is not intended to provide financial advice or replace production financial controls, accounting systems, compliance processes, or human oversight.
+### Reconciliation
+
+```text
+reconciliation_results.csv
+classified_exceptions.csv
+```
+
+### AI processing
+
+```text
+ai_routing_results.csv
+final_results.csv
+```
+
+### Metrics
+
+```text
+metrics.csv
+benchmark.csv
+benchmark_details.csv
+```
+
+### Audit
+
+```text
+audit_log.csv
+audit_report.csv
+```
+
+---
+
+# 📋 Example Exception Categories
+
+The controller can distinguish between different classes of financial exceptions, including:
+
+```text
+PAYMENT_MISSING
+AMOUNT_DISCREPANCY
+SETTLEMENT_MISSING
+SETTLEMENT_AMOUNT_DISCREPANCY
+SETTLEMENT_DELAY
+DATE_MISMATCH
+DUPLICATE_TRANSACTION
+FEE_DIFFERENCE
+SETTLEMENT_CALCULATION
+```
+
+The routing decision determines whether each case should be processed deterministically, with AI reasoning, or through human review.
+
+---
+
+# 🌟 Why This Project Is Different
+
+Traditional reconciliation automation often focuses only on producing a final result.
+
+Reconcile AI focuses on **how the result was produced and whether that result can be trusted**.
+
+The system therefore makes the following distinctions explicit:
+
+```text
+Deterministic decision
+        vs
+Rule-based decision
+        vs
+AI-assisted decision
+        vs
+Human review
+```
+
+This makes the controller easier to evaluate, audit, and improve.
+
+---
+
+# ⚠️ Disclaimer
+
+This project uses **synthetic financial data** for demonstration, development, and evaluation.
+
+It is not intended to provide financial advice or replace:
+
+* Production accounting systems
+* Financial controls
+* Compliance processes
+* Professional accounting review
+* Human oversight
+
+---
+
+# 👤 Project
+
+**Reconcile AI — AI Finance Controller**
+
+**Purpose:** AI-assisted financial reconciliation and exception operations.
+
+**Primary focus:** Multi-source reconciliation with selective AI reasoning, safe failure recovery, measurable performance, and auditability.
+
+---
+
+## 📌 Project Status
+
+The repository currently contains the core components required for:
+
+* Synthetic data generation
+* Financial source processing
+* Normalization
+* Deterministic reconciliation
+* Exception classification
+* AI routing
+* Gemini integration
+* AI validation
+* Agent workflow
+* Audit logging
+* Benchmarking
+* Ground-truth evaluation
+* Metrics generation
+* Streamlit dashboard
+
+---
+
+## 📄 License
+
+Add an appropriate open-source license to the repository before distributing the project publicly.
