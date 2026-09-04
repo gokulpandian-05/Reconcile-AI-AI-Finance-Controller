@@ -1,0 +1,100 @@
+======================================================================
+AI FINANCE CONTROLLER - STEP 21
+CONTROLLED EVALUATION / BENCHMARK
+======================================================================
+
+BENCHMARK POLICY
+----------------------------------------------------------------------
+This benchmark does NOT call Gemini.
+It evaluates existing database results against
+the ground-truth dataset.
+
+Ground truth MATCHED is evaluated against
+database RESOLVED / AI_RESOLVED.
+Ground truth EXCEPTION is evaluated against
+database UNRESOLVED / HUMAN_REVIEW.
+Exception type must also match for an exception
+record to be counted as fully correct.
+
+DATASET
+----------------------------------------------------------------------
+Ground truth records      : 70
+Database result records   : 70
+
+MATCHING
+----------------------------------------------------------------------
+Transaction ID matches        : 68
+Invoice ID matches            : 2
+Invoice transaction matches   : 0
+No matches                    : 0
+
+EVALUATION
+----------------------------------------------------------------------
+Evaluated records         : 70
+Pending records           : 0
+Correct                   : 66
+Incorrect                 : 4
+Overall accuracy          : 94.29%
+
+RECONCILIATION
+----------------------------------------------------------------------
+Expected MATCHED          : 58
+Expected EXCEPTION        : 12
+Actual MATCHED            : 62
+Actual EXCEPTION          : 8
+Match / resolution rate   : 88.57%
+
+EXCEPTION VALIDATION
+----------------------------------------------------------------------
+Evaluated exceptions       : 12
+Correct exception outcome  : 8
+Exception outcome accuracy : 66.67%
+Correct exception type     : 10
+Exception type accuracy    : 83.33%
+
+DECISION BREAKDOWN
+----------------------------------------------------------------------
+Deterministic total        : 60
+Deterministic correct      : 58
+Rule-based total           : 1
+Rule-based correct         : 0
+AI reasoning total         : 1
+AI reasoning correct       : 0
+Human review               : 8
+Failure recoveries         : 4
+
+RESULT BREAKDOWN
+----------------------------------------------------------------------
+result_category
+CORRECT      66
+INCORRECT     4
+
+MATCH METHOD BREAKDOWN
+----------------------------------------------------------------------
+match_method
+TRANSACTION_ID    68
+INVOICE_ID         2
+
+DECISION TYPE BREAKDOWN
+----------------------------------------------------------------------
+decision_type
+DETERMINISTIC_MATCH      60
+AI_FAILURE_RECOVERY       4
+HUMAN_REVIEW              4
+AI_REASONING              1
+RULE_BASED_RESOLUTION     1
+
+THROUGHPUT
+----------------------------------------------------------------------
+Evaluation time            : 0.0990 seconds
+Throughput                 : 707.02 records/second
+
+OUTPUT FILES
+----------------------------------------------------------------------
+Benchmark metrics          : c:\Users\pandi\Desktop\AI Finance Controller\data\benchmark.csv
+Transaction details        : c:\Users\pandi\Desktop\AI Finance Controller\data\benchmark_details.csv
+Benchmark summary          : c:\Users\pandi\Desktop\AI Finance Controller\data\benchmark_summary.txt
+
+======================================================================
+STEP 21 COMPLETED
+======================================================================

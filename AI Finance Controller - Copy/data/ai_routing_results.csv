@@ -1,0 +1,151 @@
+invoice_id,customer_id,transaction_id,status,exception_type,invoice_amount,payment_amount,gross_amount,fee,tax,adjustment,net_amount,difference,reason,exception_category,priority,recommended_action,ai_decision,routing_reason
+INV0001,C0001,TX0001,MATCHED,NONE,20000,20000.0,20000.0,400.0,72.0,0.0,19528.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0002,C0002,TX0002,MATCHED,NONE,2000,2000.0,2000.0,40.0,7.2,0.0,1952.8,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0003,C0003,TX0003,MATCHED,NONE,1500,1500.0,1500.0,30.0,5.4,0.0,1464.6,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0004,C0004,TX0004,MATCHED,NONE,25000,25000.0,25000.0,500.0,90.0,0.0,24410.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0005,C0005,TX0005,MATCHED,NONE,1200,1200.0,1200.0,24.0,4.32,0.0,1171.68,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0006,C0006,TX0006,MATCHED,NONE,4500,4500.0,4500.0,90.0,16.2,0.0,4393.8,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0007,C0007,TX0007,MATCHED,NONE,15000,15000.0,15000.0,300.0,54.0,0.0,14646.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0008,C0008,TX0008,MATCHED,NONE,5000,5000.0,5000.0,100.0,18.0,0.0,4882.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0009,C0009,TX0009,EXCEPTION,AMOUNT_MISMATCH,15000,14500.0,,,,,,500.0,Invoice amount ₹15000.00 does not match payment amount ₹14500.00.,AMOUNT_DISCREPANCY,HIGH,Verify invoice and payment amounts,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0010,C0010,TX0010,MATCHED,NONE,2500,2500.0,2500.0,50.0,9.0,0.0,2441.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0011,C0011,TX0011,EXCEPTION,AMOUNT_MISMATCH,2000,1900.0,,,,,,100.0,Invoice amount ₹2000.00 does not match payment amount ₹1900.00.,AMOUNT_DISCREPANCY,HIGH,Verify invoice and payment amounts,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0012,C0012,TX0012,MATCHED,NONE,10000,10000.0,10000.0,200.0,36.0,0.0,9764.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0013,C0013,,EXCEPTION,MISSING_PAYMENT,20000,,,,,,,,No payment found for invoice.,PAYMENT_MISSING,HIGH,Investigate payment source,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0014,C0014,TX0014,MATCHED,NONE,4500,4500.0,4500.0,90.0,16.2,0.0,4393.8,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0015,C0015,TX0015,EXCEPTION,DATE_MISMATCH,2500,2500.0,2500.0,50.0,9.0,0.0,2441.0,,Settlement occurred 15 days after payment.,SETTLEMENT_DELAY,MEDIUM,Investigate settlement processing delay,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0016,C0016,TX0016,EXCEPTION,MISSING_SETTLEMENT,2000,2000.0,,,,,,,No settlement found for payment.,SETTLEMENT_MISSING,HIGH,Check payment gateway settlement,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0017,C0017,TX0017,MATCHED,NONE,25000,25000.0,25000.0,500.0,90.0,0.0,24410.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0018,C0018,TX0018,EXCEPTION,MISSING_SETTLEMENT,2000,2000.0,,,,,,,No settlement found for payment.,SETTLEMENT_MISSING,HIGH,Check payment gateway settlement,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0019,C0019,TX0019,MATCHED,NONE,2000,2000.0,2000.0,40.0,7.2,0.0,1952.8,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0020,C0020,TX0020,MATCHED,NONE,5000,5000.0,5000.0,100.0,18.0,0.0,4882.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0021,C0021,TX0021,MATCHED,NONE,20000,20000.0,20000.0,400.0,72.0,0.0,19528.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0022,C0022,TX0022,MATCHED,NONE,5000,5000.0,5000.0,200.0,36.0,0.0,4764.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0023,C0023,TX0023,MATCHED,NONE,10000,10000.0,10000.0,200.0,36.0,0.0,9764.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0024,C0024,TX0024,MATCHED,NONE,2000,2000.0,2000.0,80.0,14.4,0.0,1905.6,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0025,C0025,TX0025,MATCHED,NONE,15000,15000.0,15000.0,300.0,54.0,0.0,14646.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0026,C0026,TX0026,EXCEPTION,DUPLICATE_PAYMENT,3000,6000.0,,,,,,,Multiple payments found for the same invoice.,DUPLICATE_TRANSACTION,CRITICAL,Investigate possible duplicate payment,RULE_BASED,DETERMINISTIC_EXPLANATION
+INV0027,C0027,TX0027,EXCEPTION,MISSING_SETTLEMENT,25000,25000.0,,,,,,,No settlement found for payment.,SETTLEMENT_MISSING,HIGH,Check payment gateway settlement,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0028,C0028,TX0028,MATCHED,NONE,20000,20000.0,20000.0,400.0,72.0,0.0,19528.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0029,C0029,TX0029,MATCHED,NONE,2500,2500.0,2500.0,50.0,9.0,0.0,2441.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0030,C0030,TX0030,MATCHED,NONE,7500,7500.0,7500.0,150.0,27.0,0.0,7323.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0031,C0031,TX0031,MATCHED,NONE,4500,4500.0,4500.0,90.0,16.2,0.0,4393.8,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0032,C0032,TX0032,MATCHED,NONE,25000,25000.0,25000.0,500.0,90.0,0.0,24410.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0033,C0033,TX0033,EXCEPTION,AMOUNT_MISMATCH,4500,4250.0,,,,,,250.0,Invoice amount ₹4500.00 does not match payment amount ₹4250.00.,AMOUNT_DISCREPANCY,HIGH,Verify invoice and payment amounts,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0034,C0034,TX0034,EXCEPTION,MISSING_SETTLEMENT,25000,25000.0,,,,,,,No settlement found for payment.,SETTLEMENT_MISSING,HIGH,Check payment gateway settlement,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0035,C0035,TX0035,MATCHED,NONE,2500,2500.0,2500.0,50.0,9.0,0.0,2441.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0036,C0036,TX0036,EXCEPTION,AMOUNT_MISMATCH,5000,4900.0,,,,,,100.0,Invoice amount ₹5000.00 does not match payment amount ₹4900.00.,AMOUNT_DISCREPANCY,HIGH,Verify invoice and payment amounts,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0037,C0037,TX0037,MATCHED,NONE,5000,5000.0,5000.0,100.0,18.0,0.0,4882.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0038,C0038,TX0038,MATCHED,NONE,2000,2000.0,2000.0,40.0,7.2,0.0,1952.8,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0039,C0039,TX0039,EXCEPTION,AMOUNT_MISMATCH,7500,7400.0,,,,,,100.0,Invoice amount ₹7500.00 does not match payment amount ₹7400.00.,AMOUNT_DISCREPANCY,HIGH,Verify invoice and payment amounts,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0040,C0040,TX0040,MATCHED,NONE,2500,2500.0,2500.0,50.0,9.0,0.0,2441.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0041,C0041,TX0041,MATCHED,NONE,1200,1200.0,1200.0,48.0,8.64,0.0,1143.36,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0042,C0042,TX0042,MATCHED,NONE,7500,7500.0,7500.0,300.0,54.0,0.0,7146.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0043,C0043,TX0043,MATCHED,NONE,2000,2000.0,2000.0,80.0,14.4,0.0,1905.6,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0044,C0044,TX0044,MATCHED,NONE,25000,25000.0,25000.0,500.0,90.0,0.0,24410.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0045,C0045,TX0045,MATCHED,NONE,1200,1200.0,1200.0,24.0,4.32,0.0,1171.68,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0046,C0046,TX0046,MATCHED,NONE,20000,20000.0,20000.0,800.0,144.0,0.0,19056.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0047,C0047,TX0047,MATCHED,NONE,15000,15000.0,15000.0,300.0,54.0,0.0,14646.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0048,C0048,TX0048,MATCHED,NONE,3000,3000.0,3000.0,60.0,10.8,0.0,2929.2,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0049,C0049,TX0049,MATCHED,NONE,20000,20000.0,20000.0,400.0,72.0,0.0,19528.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0050,C0050,TX0050,MATCHED,NONE,1200,1200.0,1200.0,24.0,4.32,0.0,1171.68,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0051,C0051,TX0051,MATCHED,NONE,2000,2000.0,2000.0,40.0,7.2,0.0,1952.8,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0052,C0052,TX0052,MATCHED,NONE,7500,7500.0,7500.0,300.0,54.0,0.0,7146.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0053,C0053,TX0053,MATCHED,NONE,20000,20000.0,20000.0,400.0,72.0,0.0,19528.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0054,C0054,TX0054,MATCHED,NONE,3000,3000.0,3000.0,60.0,10.8,0.0,2929.2,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0055,C0055,TX0055,MATCHED,NONE,3000,3000.0,3000.0,60.0,10.8,0.0,2929.2,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0056,C0056,TX0056,MATCHED,NONE,10000,10000.0,10000.0,200.0,36.0,0.0,9764.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0057,C0057,TX0057,EXCEPTION,MISSING_SETTLEMENT,3000,3000.0,,,,,,,No settlement found for payment.,SETTLEMENT_MISSING,HIGH,Check payment gateway settlement,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0058,C0058,TX0058,MATCHED,NONE,2000,2000.0,2000.0,40.0,7.2,0.0,1952.8,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0059,C0059,TX0059,MATCHED,NONE,25000,25000.0,25000.0,500.0,90.0,0.0,24410.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0060,C0060,TX0060,MATCHED,NONE,5000,5000.0,5000.0,100.0,18.0,0.0,4882.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0061,C0061,TX0061,MATCHED,NONE,4500,4500.0,4500.0,90.0,16.2,0.0,4393.8,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0062,C0062,TX0062,MATCHED,NONE,15000,15000.0,15000.0,600.0,108.0,0.0,14292.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0063,C0063,TX0063,EXCEPTION,DATE_MISMATCH,5000,5000.0,5000.0,100.0,18.0,0.0,4882.0,,Settlement occurred 15 days after payment.,SETTLEMENT_DELAY,MEDIUM,Investigate settlement processing delay,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0064,C0064,TX0064,EXCEPTION,MISSING_SETTLEMENT,20000,20000.0,,,,,,,No settlement found for payment.,SETTLEMENT_MISSING,HIGH,Check payment gateway settlement,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0065,C0065,TX0065,MATCHED,NONE,5000,5000.0,5000.0,100.0,18.0,0.0,4882.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0066,C0066,TX0066,MATCHED,NONE,4500,4500.0,4500.0,90.0,16.2,0.0,4393.8,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0067,C0067,TX0067,MATCHED,NONE,5000,5000.0,5000.0,200.0,36.0,0.0,4764.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0068,C0068,TX0068,MATCHED,NONE,4500,4500.0,4500.0,180.0,32.4,0.0,4287.6,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0069,C0069,TX0069,MATCHED,NONE,1200,1200.0,1200.0,24.0,4.32,0.0,1171.68,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0070,C0070,TX0070,EXCEPTION,AMOUNT_MISMATCH,1200,700.0,,,,,,500.0,Invoice amount ₹1200.00 does not match payment amount ₹700.00.,AMOUNT_DISCREPANCY,HIGH,Verify invoice and payment amounts,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0071,C0071,TX0071,EXCEPTION,DATE_MISMATCH,15000,15000.0,15000.0,300.0,54.0,0.0,14646.0,,Settlement occurred 15 days after payment.,SETTLEMENT_DELAY,MEDIUM,Investigate settlement processing delay,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0072,C0072,TX0072,MATCHED,NONE,3000,3000.0,3000.0,60.0,10.8,0.0,2929.2,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0073,C0073,TX0073,EXCEPTION,DATE_MISMATCH,4500,4500.0,4500.0,90.0,16.2,0.0,4393.8,,Settlement occurred 15 days after payment.,SETTLEMENT_DELAY,MEDIUM,Investigate settlement processing delay,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0074,C0074,TX0074,MATCHED,NONE,20000,20000.0,20000.0,400.0,72.0,0.0,19528.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0075,C0075,TX0075,MATCHED,NONE,4500,4500.0,4500.0,90.0,16.2,0.0,4393.8,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0076,C0076,TX0076,MATCHED,NONE,20000,20000.0,20000.0,400.0,72.0,0.0,19528.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0077,C0077,TX0077,MATCHED,NONE,10000,10000.0,10000.0,200.0,36.0,0.0,9764.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0078,C0078,TX0078,MATCHED,NONE,7500,7500.0,7500.0,150.0,27.0,0.0,7323.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0079,C0079,TX0079,MATCHED,NONE,25000,25000.0,25000.0,500.0,90.0,0.0,24410.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0080,C0080,,EXCEPTION,MISSING_PAYMENT,1500,,,,,,,,No payment found for invoice.,PAYMENT_MISSING,HIGH,Investigate payment source,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0081,C0081,TX0081,MATCHED,NONE,2000,2000.0,2000.0,80.0,14.4,0.0,1905.6,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0082,C0082,TX0082,EXCEPTION,AMOUNT_MISMATCH,7500,6750.0,,,,,,750.0,Invoice amount ₹7500.00 does not match payment amount ₹6750.00.,AMOUNT_DISCREPANCY,HIGH,Verify invoice and payment amounts,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0083,C0083,TX0083,EXCEPTION,MISSING_SETTLEMENT,2500,2500.0,,,,,,,No settlement found for payment.,SETTLEMENT_MISSING,HIGH,Check payment gateway settlement,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0084,C0084,TX0084,MATCHED,NONE,2000,2000.0,2000.0,40.0,7.2,0.0,1952.8,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0085,C0085,TX0085,MATCHED,NONE,7500,7500.0,7500.0,150.0,27.0,0.0,7323.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0086,C0086,TX0086,MATCHED,NONE,7500,7500.0,7500.0,150.0,27.0,0.0,7323.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0087,C0087,TX0087,EXCEPTION,MISSING_SETTLEMENT,25000,25000.0,,,,,,,No settlement found for payment.,SETTLEMENT_MISSING,HIGH,Check payment gateway settlement,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0088,C0088,TX0088,MATCHED,NONE,10000,10000.0,10000.0,200.0,36.0,0.0,9764.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0089,C0089,TX0089,EXCEPTION,DATE_MISMATCH,2500,2500.0,2500.0,50.0,9.0,0.0,2441.0,,Settlement occurred 15 days after payment.,SETTLEMENT_DELAY,MEDIUM,Investigate settlement processing delay,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0090,C0090,TX0090,EXCEPTION,AMOUNT_MISMATCH,2000,1750.0,,,,,,250.0,Invoice amount ₹2000.00 does not match payment amount ₹1750.00.,AMOUNT_DISCREPANCY,HIGH,Verify invoice and payment amounts,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0091,C0091,TX0091,MATCHED,NONE,5000,5000.0,5000.0,100.0,18.0,0.0,4882.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0092,C0092,TX0092,MATCHED,NONE,2500,2500.0,2500.0,100.0,18.0,0.0,2382.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0093,C0093,TX0093,MATCHED,NONE,15000,15000.0,15000.0,600.0,108.0,0.0,14292.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0094,C0094,TX0094,MATCHED,NONE,5000,5000.0,5000.0,100.0,18.0,0.0,4882.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0095,C0095,TX0095,EXCEPTION,AMOUNT_MISMATCH,7500,6750.0,,,,,,750.0,Invoice amount ₹7500.00 does not match payment amount ₹6750.00.,AMOUNT_DISCREPANCY,HIGH,Verify invoice and payment amounts,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0096,C0096,TX0096,MATCHED,NONE,7500,7500.0,7500.0,150.0,27.0,0.0,7323.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0097,C0097,TX0097,EXCEPTION,DUPLICATE_PAYMENT,1500,3000.0,,,,,,,Multiple payments found for the same invoice.,DUPLICATE_TRANSACTION,CRITICAL,Investigate possible duplicate payment,RULE_BASED,DETERMINISTIC_EXPLANATION
+INV0098,C0098,TX0098,MATCHED,NONE,3000,3000.0,3000.0,60.0,10.8,0.0,2929.2,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0099,C0099,,EXCEPTION,MISSING_PAYMENT,5000,,,,,,,,No payment found for invoice.,PAYMENT_MISSING,HIGH,Investigate payment source,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0100,C0100,TX0100,MATCHED,NONE,7500,7500.0,7500.0,150.0,27.0,0.0,7323.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0101,C0101,TX0101,MATCHED,NONE,20000,20000.0,20000.0,400.0,72.0,0.0,19528.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0102,C0102,TX0102,MATCHED,NONE,15000,15000.0,15000.0,300.0,54.0,0.0,14646.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0103,C0103,TX0103,MATCHED,NONE,15000,15000.0,15000.0,300.0,54.0,0.0,14646.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0104,C0104,TX0104,MATCHED,NONE,2000,2000.0,2000.0,80.0,14.4,0.0,1905.6,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0105,C0105,TX0105,EXCEPTION,AMOUNT_MISMATCH,15000,14250.0,,,,,,750.0,Invoice amount ₹15000.00 does not match payment amount ₹14250.00.,AMOUNT_DISCREPANCY,HIGH,Verify invoice and payment amounts,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0106,C0106,TX0106,EXCEPTION,AMOUNT_MISMATCH,25000,24750.0,,,,,,250.0,Invoice amount ₹25000.00 does not match payment amount ₹24750.00.,AMOUNT_DISCREPANCY,HIGH,Verify invoice and payment amounts,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0107,C0107,TX0107,EXCEPTION,MISSING_SETTLEMENT,25000,25000.0,,,,,,,No settlement found for payment.,SETTLEMENT_MISSING,HIGH,Check payment gateway settlement,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0108,C0108,TX0108,MATCHED,NONE,10000,10000.0,10000.0,200.0,36.0,0.0,9764.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0109,C0109,TX0109,MATCHED,NONE,1200,1200.0,1200.0,24.0,4.32,0.0,1171.68,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0110,C0110,TX0110,MATCHED,NONE,20000,20000.0,20000.0,400.0,72.0,0.0,19528.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0111,C0111,TX0111,MATCHED,NONE,15000,15000.0,15000.0,300.0,54.0,0.0,14646.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0112,C0112,TX0112,EXCEPTION,DATE_MISMATCH,4500,4500.0,4500.0,90.0,16.2,0.0,4393.8,,Settlement occurred 15 days after payment.,SETTLEMENT_DELAY,MEDIUM,Investigate settlement processing delay,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0113,C0113,TX0113,MATCHED,NONE,7500,7500.0,7500.0,150.0,27.0,0.0,7323.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0114,C0114,,EXCEPTION,MISSING_PAYMENT,2000,,,,,,,,No payment found for invoice.,PAYMENT_MISSING,HIGH,Investigate payment source,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0115,C0115,TX0115,MATCHED,NONE,4500,4500.0,4500.0,90.0,16.2,0.0,4393.8,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0116,C0116,TX0116,MATCHED,NONE,1500,1500.0,1500.0,30.0,5.4,0.0,1464.6,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0117,C0117,,EXCEPTION,MISSING_PAYMENT,25000,,,,,,,,No payment found for invoice.,PAYMENT_MISSING,HIGH,Investigate payment source,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0118,C0118,TX0118,EXCEPTION,AMOUNT_MISMATCH,1500,1000.0,,,,,,500.0,Invoice amount ₹1500.00 does not match payment amount ₹1000.00.,AMOUNT_DISCREPANCY,HIGH,Verify invoice and payment amounts,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0119,C0119,TX0119,MATCHED,NONE,7500,7500.0,7500.0,300.0,54.0,0.0,7146.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0120,C0120,TX0120,MATCHED,NONE,4500,4500.0,4500.0,90.0,16.2,0.0,4393.8,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0121,C0121,TX0121,EXCEPTION,MISSING_SETTLEMENT,25000,25000.0,,,,,,,No settlement found for payment.,SETTLEMENT_MISSING,HIGH,Check payment gateway settlement,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0122,C0122,TX0122,EXCEPTION,AMOUNT_MISMATCH,2500,2000.0,,,,,,500.0,Invoice amount ₹2500.00 does not match payment amount ₹2000.00.,AMOUNT_DISCREPANCY,HIGH,Verify invoice and payment amounts,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0123,C0123,TX0123,MATCHED,NONE,2500,2500.0,2500.0,50.0,9.0,0.0,2441.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0124,C0124,TX0124,MATCHED,NONE,25000,25000.0,25000.0,500.0,90.0,0.0,24410.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0125,C0125,TX0125,EXCEPTION,DUPLICATE_PAYMENT,10000,20000.0,,,,,,,Multiple payments found for the same invoice.,DUPLICATE_TRANSACTION,CRITICAL,Investigate possible duplicate payment,RULE_BASED,DETERMINISTIC_EXPLANATION
+INV0126,C0126,TX0126,MATCHED,NONE,1200,1200.0,1200.0,24.0,4.32,0.0,1171.68,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0127,C0127,TX0127,MATCHED,NONE,2000,2000.0,2000.0,40.0,7.2,0.0,1952.8,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0128,C0128,TX0128,MATCHED,NONE,5000,5000.0,5000.0,100.0,18.0,0.0,4882.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0129,C0129,TX0129,MATCHED,NONE,2000,2000.0,2000.0,80.0,14.4,0.0,1905.6,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0130,C0130,TX0130,MATCHED,NONE,10000,10000.0,10000.0,200.0,36.0,0.0,9764.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0131,C0131,TX0131,MATCHED,NONE,3000,3000.0,3000.0,60.0,10.8,0.0,2929.2,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0132,C0132,TX0132,MATCHED,NONE,15000,15000.0,15000.0,300.0,54.0,0.0,14646.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0133,C0133,TX0133,MATCHED,NONE,2000,2000.0,2000.0,40.0,7.2,0.0,1952.8,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0134,C0134,TX0134,MATCHED,NONE,5000,5000.0,5000.0,100.0,18.0,0.0,4882.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0135,C0135,TX0135,EXCEPTION,AMOUNT_MISMATCH,25000,24500.0,,,,,,500.0,Invoice amount ₹25000.00 does not match payment amount ₹24500.00.,AMOUNT_DISCREPANCY,HIGH,Verify invoice and payment amounts,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0136,C0136,TX0136,MATCHED,NONE,5000,5000.0,5000.0,100.0,18.0,0.0,4882.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0137,C0137,,EXCEPTION,MISSING_PAYMENT,2000,,,,,,,,No payment found for invoice.,PAYMENT_MISSING,HIGH,Investigate payment source,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0138,C0138,TX0138,MATCHED,NONE,15000,15000.0,15000.0,300.0,54.0,0.0,14646.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0139,C0139,TX0139,MATCHED,NONE,25000,25000.0,25000.0,500.0,90.0,0.0,24410.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0140,C0140,TX0140,EXCEPTION,MISSING_SETTLEMENT,1500,1500.0,,,,,,,No settlement found for payment.,SETTLEMENT_MISSING,HIGH,Check payment gateway settlement,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0141,C0141,,EXCEPTION,MISSING_PAYMENT,1200,,,,,,,,No payment found for invoice.,PAYMENT_MISSING,HIGH,Investigate payment source,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0142,C0142,,EXCEPTION,MISSING_PAYMENT,15000,,,,,,,,No payment found for invoice.,PAYMENT_MISSING,HIGH,Investigate payment source,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0143,C0143,TX0143,MATCHED,NONE,15000,15000.0,15000.0,300.0,54.0,0.0,14646.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0144,C0144,,EXCEPTION,MISSING_PAYMENT,3000,,,,,,,,No payment found for invoice.,PAYMENT_MISSING,HIGH,Investigate payment source,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0145,C0145,TX0145,MATCHED,NONE,1500,1500.0,1500.0,30.0,5.4,0.0,1464.6,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0146,C0146,TX0146,MATCHED,NONE,2000,2000.0,2000.0,40.0,7.2,0.0,1952.8,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0147,C0147,TX0147,MATCHED,NONE,10000,10000.0,10000.0,200.0,36.0,0.0,9764.0,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED
+INV0148,C0148,TX0148,EXCEPTION,DUPLICATE_PAYMENT,1500,3000.0,,,,,,,Multiple payments found for the same invoice.,DUPLICATE_TRANSACTION,CRITICAL,Investigate possible duplicate payment,RULE_BASED,DETERMINISTIC_EXPLANATION
+INV0149,C0149,TX0149,EXCEPTION,MISSING_SETTLEMENT,1200,1200.0,,,,,,,No settlement found for payment.,SETTLEMENT_MISSING,HIGH,Check payment gateway settlement,AI_REQUIRED,CONTEXTUAL_REASONING
+INV0150,C0150,TX0150,MATCHED,NONE,1200,1200.0,1200.0,24.0,4.32,0.0,1171.68,0.0,"Invoice, payment and settlement records are consistent.",NO_EXCEPTION,LOW,No action required,NO_AI,ALREADY_MATCHED

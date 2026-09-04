@@ -1,0 +1,90 @@
+============================================================
+AI FINANCE CONTROLLER
+STEP 20 - AUDIT & DECISION EVIDENCE REPORT
+============================================================
+
+Audit generated at : 2026-09-02T09:33:52
+Database path      : c:\Users\pandi\Desktop\AI Finance Controller\data\finance_controller.db
+
+------------------------------------------------------------
+PROCESSING SUMMARY
+------------------------------------------------------------
+Total transactions : 70
+Resolved           : 62
+Unresolved         : 8
+Human review       : 8
+
+------------------------------------------------------------
+DECISION PATH SUMMARY
+------------------------------------------------------------
+Deterministic matches : 60
+Rule-based resolutions: 1
+AI resolutions        : 1
+AI failure recoveries : 4
+
+------------------------------------------------------------
+AI USAGE
+------------------------------------------------------------
+Records involving AI : 7
+AI attempts          : 8
+Failure recoveries   : 4
+
+------------------------------------------------------------
+FINAL STATUS BREAKDOWN
+------------------------------------------------------------
+RESOLVED: 62
+UNRESOLVED: 8
+
+------------------------------------------------------------
+FINAL ACTION BREAKDOWN
+------------------------------------------------------------
+NO_ACTION: 60
+HUMAN_REVIEW: 8
+APPROVE_SETTLEMENT: 1
+RULE_BASED_RESOLUTION: 1
+
+------------------------------------------------------------
+DECISION TYPE BREAKDOWN
+------------------------------------------------------------
+DETERMINISTIC_MATCH: 60
+HUMAN_REVIEW: 4
+AI_FAILURE_RECOVERY: 4
+AI_RESOLUTION: 1
+RULE_BASED_RESOLUTION: 1
+
+------------------------------------------------------------
+EXCEPTION BREAKDOWN
+------------------------------------------------------------
+NO_EXCEPTION: 60
+SETTLEMENT_MISSING: 3
+AMOUNT_DISCREPANCY: 3
+INVALID_TRANSACTION_ID: 2
+SETTLEMENT_DELAY: 1
+DUPLICATE_TRANSACTION: 1
+
+------------------------------------------------------------
+FAILURE RECOVERY EVIDENCE
+------------------------------------------------------------
+TX0047 | Exception=SETTLEMENT_MISSING | AI Attempts=1 | Action=HUMAN_REVIEW | Status=UNRESOLVED
+TX0064 | Exception=AMOUNT_DISCREPANCY | AI Attempts=1 | Action=HUMAN_REVIEW | Status=UNRESOLVED
+INVOICE:INV0002 | Exception=INVALID_TRANSACTION_ID | AI Attempts=0 | Action=HUMAN_REVIEW | Status=UNRESOLVED
+INVOICE:INV0048 | Exception=INVALID_TRANSACTION_ID | AI Attempts=0 | Action=HUMAN_REVIEW | Status=UNRESOLVED
+
+------------------------------------------------------------
+AUDIT INTERPRETATION
+------------------------------------------------------------
+Every transaction stored in the SQLite database
+has been assigned an auditable decision type and
+decision reason.
+
+AI failures are preserved as evidence rather than
+being hidden. When an AI path fails, the controller
+can escalate the transaction to HUMAN_REVIEW.
+
+This provides transaction-level traceability for
+automated decisions, AI usage, exceptions, and
+failure recovery.
+
+============================================================
+END OF AUDIT REPORT
+============================================================
